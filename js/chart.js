@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var apiPath = "http://api.fixer.io/";
+  var apiPath = "https://api.fixer.io/";
   var chartArray = [['date', 'Rate']];
 
 
