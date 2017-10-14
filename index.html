@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="author" content="Alexander Piliptsevich">
+    <meta name="description" content="Alexander Piliptsevich" />
+  
+    <title>RUB/USD/EUR/BTC</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Germania+One" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  </head>
+  <body>
+
+  <!-- Loader -->
+<!--   <script>
+    // no need to specify document ready
+    $(function(){
+        // don't cache ajax or content won't be fresh
+        $.ajaxSetup ({
+            cache: false
+        });
+        var ajax_load = "<img src='images/bitcoin_loader.gif' alt='loading...' />";
+        
+        // load() functions
+        var loadUrl = "file:///D:/_programming/rub_currency_app/index.html";
+        // $("#loadbasic").click(function(){
+            $(".App").html(ajax_load).load(loadUrl);
+        // }); 
+    });
+  </script> -->
+  <!-- end loader -->
+
+    <div class="App">
+      <div class="App-header">
+
+        <span class="App-header-top">
+          <span id="label">
+            <img src="images/providence_eye.png" class="App-logo-spin" alt="logo_eye" />
+            <h1 id="logo">PILINIS</h1>
+            <h2 id="current_time"></h2>
+          </span>
+
+<!--           <h2 style="font-family: 'Germania One', cursive; text-align: center;">IN GOD WE TRUST</h2> -->
+        </span>
+      </div>
+
+      <div id="content">
+
+        <div class="settings-button" onclick="openNav()"><i class="icon-info-with-circle"></i> <span id="settings-button-id"> Settings </span> </div>
+
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="sidebar-setting" > Choose your color theme </div>
+          <div class="theme-container dark-theme" onclick="changeColor(this.classList)"></div>
+          <div class="theme-container white-theme" onclick="changeColor(this.classList)"></div>
+          <div class="sidebar-setting" > Choose rates to be displayed 
+            <label class="settings-checkbox"><input type="checkbox" name="checkbox" value="value" id="rates-item-EURRUB" onclick="showRate(this.id)" checked>EUR/RUB</label>
+            <label class="settings-checkbox"><input type="checkbox" name="checkbox" value="value" id="rates-item-USDRUB" onclick="showRate(this.id)" checked>USD/RUB</label>
+            <label class="settings-checkbox"><input type="checkbox" name="checkbox" value="value" id="rates-item-BTCUSD" onclick="showRate(this.id)" checked>BTC/USD</label>
+            <label class="settings-checkbox"><input type="checkbox" name="checkbox" value="value" id="rates-item-EURUSD" onclick="showRate(this.id)" checked>EUR/USD</label>
+            <label class="settings-checkbox"><input type="checkbox" name="checkbox" value="value" id="rates-item-EURGBP" onclick="showRate(this.id)" checked>EUR/GBP</label>
+          </div>
+          <div class="sidebar-setting" > Choose graphs to be displayed 
+            <label class="settings-checkbox"><input type="checkbox" name="checkbox" value="value" id="chart" onclick="showRate(this.id)" checked>Display</label>
+          </div>
+        </div>
+
+        <div class="rates-area">
+          <div class="rates-container">
+            <span class="rates-item rates-item-EURRUB">
+              <div class="rates-number" id="EURRUB">0.00</div>
+              <div class="rates-description">EUR/RUB</div>
+            </span>
+            <span class="rates-item rates-item-USDRUB">
+              <div class="rates-number" id="USDRUB">0.00</div>
+              <div class="rates-description">USD/RUB</div>
+            </span>
+            <span class="rates-item rates-item-BTCUSD">
+              <div class="rates-number" id="BTCUSD">0.00</div>
+              <div class="rates-description">BTC/USD</div>
+            </span>
+            <span class="rates-item rates-item-EURUSD">
+              <div class="rates-number" id="EURUSD">0.00</div>
+              <div class="rates-description">EUR/USD</div>
+            </span>
+    <!--         <span class="rates-item">
+              <div class="rates-number" id="EURJPY">0.00</div>
+              <div class="rates-description">EUR/JPY</div>
+            </span> -->
+            <span class="rates-item rates-item-EURGBP">
+              <div class="rates-number" id="EURGBP">0.00</div>
+              <div class="rates-description">EUR/GBP</div>
+            </span>
+  <!--           <span id="rates-item-add">
+              <div class="rates-number" id="Add">
+                <input id="add-new" type="image" style="height: auto; width: auto;" src="images/add_item.png" />
+              </div>
+              <div class="rates-description" ></div>
+            </span> -->
+          </div>
+        </div>
+
+        <div class="chart">
+                <div style="display: inline-block; padding: 3% 0">
+                  <button id="btn_EURUSD">EUR/USD</button>
+                  <button id="btn_EURGBP">EUR/GBP</button>
+                  <button id="btn_EURCZK">EUR/CZK</button>
+                </div>
+                <!-- Line chart -->
+                <div id="curve_chart" style="width: 90vw; height: 50vH; display: none;"></div>
+        </div>
+
+    </div>  <!-- END content -->
+
+      <div class="footer">
+        <div class="footer-inner"> 
+          <span class="greetings">RUB to another currency rates + Bitcoin extra rate!<span>
+            <ul class="social-icons">
+              <li class="social-links"><a href="https://www.facebook.com/piliptsevichalex"><i class="icon-facebook-with-circle"></i></a></li>
+              <li class="social-links"><a href="https://www.instagram.com/apiliptsevich/"><i class="icon-instagram-with-circle"></i></a></li>
+              <li class="social-links"><a href="https://www.linkedin.com/in/aleksandr-piliptsevich-59a429113/"><i class="icon-linkedin-with-circle"></i></a></li>
+              <li class="email-link-outer social-links">
+                <a class="email-link" target="_blank" href="mailto:piliptsevichalex@gmail.com">piliptsevichalex@gmail.com</a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!--
+    <div id="form"> 
+      <form method="post">
+        <section>
+          <label>Api URL</label>
+          <input type="form-url" required pattern="https?://.+" placeholder="http://api.fixer.io/latest" required>
+        </section>
+        <section>
+          <label>Description</label>
+          <input id="form-description" type="text" placeholder="EUR/BTC" required>
+        </section>
+        <section>
+          <label>ID</label>
+          <input id="form-id" type="text" placeholder="EUR/BTC" pattern="[^\s]" required>
+        </section>
+        <section>
+          <label>Base Path</label>
+          <input id="form-base-path" type="text"  placeholder="EUR/BTC" required>
+        </section>
+        <section>
+          <label>Quote Path</label>
+          <input id="form-quote-path" type="text"  placeholder="EUR/BTC" required>
+        </section>
+        <section>
+          <input type="submit" value="Submit">
+          <button id="cancel">Cancel</button>
+        </section>
+      </form>
+    </div> -->
+
+  <script type="text/javascript">
+    function showRate(checkboxId){
+      var className = checkboxId;
+      // var id = checkboxId.substring(0, checkboxId.length-1);
+      if(document.getElementById(checkboxId).checked == false){
+        var element = document.getElementsByClassName(className);
+        element[0].style.display = "none";
+      }
+      else{
+        var element = document.getElementsByClassName(className);
+        element[0].style.display = "inline-block";
+      }
+    }
+  </script>
+
+  <script>
+  function openNav() {
+    if($(window).width() > 992){
+      document.getElementById("mySidenav").style.width = "25%";
+    }
+    else{
+      document.getElementById("mySidenav").style.width = "100%";
+    }
+  }
+
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
+
+  <script type="text/javascript">
+    function changeColor(classList){
+      var element = document.getElementById("content");
+      if(classList[1] == "dark-theme"){
+        element.classList.remove("white-theme");
+        element.classList.add("dark-theme");
+      }
+      if(classList[1] == "white-theme"){
+        element.classList.remove("dark-theme");
+        element.classList.add("white-theme");
+      }
+    }
+  </script>
+
+  <script>
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(function(registration) {
+          console.log('Service Worker registration successful with scope: ',
+          registration.scope);
+        })
+        .catch(function(err) {
+          console.log('Service Worker registration failed: ', err);
+        });
+    }
+
+  </script>
+  
+  <script type="text/javascript" src="js/chart.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>  
+	<script src="js/set_rates.js"></script>
+	<script src="js/current_time.js"></script>
+  </body>
+</html>

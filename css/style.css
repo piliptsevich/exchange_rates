@@ -1,0 +1,358 @@
+html{
+  width: 100%;
+  height: 100%;
+  overflow:auto;
+  font-family: 'Germania One';
+}
+
+body{
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  display: inline-block;
+}
+
+.App-header {
+  background-color: #34465d;
+  height: auto;
+  color: white;
+  text-align: center;
+}
+
+div.App-header{
+  display: inline-block;
+  width: 100%;
+}
+
+span.App-header-top {
+  width: 100%;
+}
+
+#label{
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.5;
+  display: inline;
+}
+
+#label:hover{
+  opacity: 1;
+}
+
+.App-logo-spin {
+  animation: App-logo-spin infinite 20s linear;
+  height: 100px;
+  padding: 1%;
+  text-align: left;
+  display: inline-block;
+  float: left;
+}
+
+#logo{
+  display: inline-block;
+  text-align: left;
+  float: left;
+  font-size: 3.5rem;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+h2#current_time{
+  padding-right: 3%;
+  display: inline-block;
+  float: right;
+}
+
+div#content {
+  display: inline-block;
+  width: 100%;
+/*  height: 100%;*/
+}
+
+@media only screen and (max-width: 992px) {
+  #label{
+    opacity: 1;
+    display: inline-grid;
+  }
+
+  #logo{
+    margin: 3%;
+  }
+
+  h2#current_time{
+    float: none; 
+    text-align: center; 
+    margin: 3%;
+  }
+  .App-logo-spin {
+    display: none;
+  }
+}
+
+/*settings*/
+.settings-button {
+  width: auto;
+  padding: 3% 0 0 3%;
+  font-size: 1.5rem;
+  z-index: 110;
+  color: #cd201f;
+  letter-spacing: 1px;
+  opacity: .8;
+  cursor: pointer;
+  -webkit-transition: opacity 0.2s, color 4s;
+  transition: opacity 0.2s, color 4s;
+  text-align: left;
+  position: fixed;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 992px) {
+  .settings-button {
+    /*top: 18%;*/
+  }
+  .App {
+    left: 0;
+    right: 0 !important;
+    position: relative;
+  }
+  #settings-button-id{
+    display: none;
+  }
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 4%;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.sidebar-setting{
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #818181;
+  transition: 0.3s;
+  padding: 10% 0;
+}
+
+.sidebar-setting:hover{
+  color: #f1f1f1;
+}
+
+.theme-container{
+    width: 25%;
+    padding-top: 25%; /* 1:1 Aspect Ratio */
+    position: relative; /* If you want text inside of it */
+    cursor: pointer;
+    display: inline-block;
+}
+
+.dark-theme{
+  background-color: #2d423f;
+  transition: 0.5s;
+}
+
+.white-theme{
+  background-color: #fff;
+  transition: 0.5s;
+}
+
+.settings-checkbox{
+  display: block;
+  color: #818181;
+  padding: 1.5% 0;
+}
+
+.settings-checkbox:first-child{
+  padding-top: 5%;
+}
+
+.settings-checkbox:hover{
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 992px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/*END settings*/
+
+/*Rates*/
+
+div.rates-container{
+  height: auto;
+  text-align: center;
+  padding-top: 15vh;
+  padding-bottom: 10vh;
+}
+
+span.rates-item {
+  display: inline-block;
+  opacity: 0.5; 
+  padding: 5% 3%;
+  text-align: center;
+}
+
+/*#rates-item-add{
+/*  background-image: url(../images/add_item.png);
+  display: inline-block;
+  opacity: 0.5; 
+  padding: 0 3%;
+  text-align: center;
+  position: relative;
+  top: 1.5rem;
+}*/
+
+div.rates-number{
+  font-size: 9vw;
+  display: block;
+}
+
+#BTCUSD{
+  color: blue;
+}
+
+div.rates-description{
+  font-size: 1vw; 
+  display: block;
+}
+
+input#add-new{
+  width: 100% !important;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 992px) {
+  div.rates-container{
+    height: auto;
+    text-align: center;
+    padding: 5vh 0 0 0;
+  }
+
+  span.rates-item {
+    display: block;
+    width: inherit;
+  }
+
+  div.rates-number{
+    font-size: 20vw;
+    display: block;
+  }
+
+  div.rates-description{
+    font-size: 4vw; 
+    display: block;
+  }
+}
+
+/*END Rates*/
+
+/*Chart*/
+
+/*END Chart*/
+
+/*Footer*/
+span.greetings {
+  color: #fff;
+}
+
+.footer {
+  padding: 1rem 0;
+  text-align: center;
+  background-color: #34465d;
+/*  position: absolute;*/
+  left: 0;
+  bottom:0;
+  width:100%;
+}
+
+.social-links{
+  font-size: 2rem;
+}
+
+li{
+  display: inline !important;
+}
+
+li.social-links a:link{color: #fff; text-decoration: none;}
+li.social-links a:active{color: #fff;}
+li.social-links a:visited{color: #fff;}
+li.social-links a:hover{color: orange;}
+
+ul.social-icons{
+  padding: 0;
+}
+
+.email-link-outer{
+  display: block !important;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+/*END Footer*/
+
+/*Form*/
+/*#form{
+    position: fixed; 
+    z-index:10;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(66, 69, 165, 0.5);
+    display: none;
+    float: right;
+}
+
+section{
+  margin: 1.5% 0;
+}
+
+form{
+  margin-top: 50vh;
+}
+
+@media only screen and (max-width: 992px) {
+    section{
+      margin: 1.5% 15% 1.5% 0;
+      float: middle;
+    }
+}*/
+
+/*END Form*/
