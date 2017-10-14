@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-var apiPath1 = "http://api.fixer.io/latest?base=";
+var apiPath1 = "https://api.fixer.io/latest?base=";
 var apiPath2 = "https://api.coindesk.com/v1/bpi/currentprice/USD.json";
 var apiPath3 = "https://api.coindesk.com/v1/bpi/currentprice.json";
 
