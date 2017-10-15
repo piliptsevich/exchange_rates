@@ -1,5 +1,5 @@
 # exchange_rates
-Simple web application, which interacts with exchange rates Apis. 
+Simple web application, which interacts with exchange rates APis. 
 
 Technologies: 
 - CSS, HTML
