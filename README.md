@@ -6,3 +6,4 @@ Technologies:
 - JS, jQuery
 - AJAX
 - Google Charts
+- PWA
