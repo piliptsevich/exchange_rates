@@ -76,6 +76,7 @@ h2#current_time{
 div#content {
   display: inline-block;
   width: 100%;
+  min-height: 75vh;
 /*  height: 100%;*/
 }
 
